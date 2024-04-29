@@ -1,0 +1,117 @@
+/*
+Global Styles
+*/
+
+html, body {
+    margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+body, h1, h2, h3, h4, h5, h6,
+.menu-title, .menu-price, .menu-description {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1 {
+    margin-top: 50px;
+    letter-spacing: 8px;
+}
+
+#menu-nav hr {
+    width: 80%;
+    color: lightgray
+}
+
+#menu-ul div {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+#menu-ul div > * {
+    margin: 0 10px; 
+}
+
+#menu-ul li {
+    border: 5px solid black;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: yellow;
+    height: 60px; 
+    width: 100px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+#menu-ul li a {
+    font-weight: bold;
+    font-size: 17px;
+    text-align: center; 
+    text-decoration: none; 
+}
+
+.category-link {
+    text-decoration: none;
+    color: black;
+}
+
+#menu-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#menu-container .menu-item{
+    display: flex;
+    flex-direction: row;
+}
+
+/*
+article
+*/
+.article-container {
+    display: flex;
+}
+
+article.menu-item {
+    border: 1px solid lightgrey; 
+    border-radius: 8px;
+    padding: 10px; 
+    align-items: center;
+}
+
+.image-container {
+    width: 30%;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+.details-container {
+    width: 60%;
+}
+
+.title-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details-container {
+    padding: 10px;
+}

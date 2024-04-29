@@ -6,26 +6,41 @@ const createMenuItem = (menuItem) => {
   article.classList.add("menu-item");
   article.id = `menu-item-${menuItem.id}`;
 
+  const imageContainer = document.createElement("div");
+  imageContainer.classList.add("image-container");
+
   const img = document.createElement("img");
   img.src = menuItem.image;
   img.alt = menuItem.title;
 
-  const title = document.createElement("h2");
+  imageContainer.appendChild(img);
+
+  const detailsContainer = document.createElement("div");
+  detailsContainer.classList.add("details-container");
+
+  const titlePriceContainer = document.createElement("div");
+  titlePriceContainer.classList.add("title-price");
+
+  const title = document.createElement("h4");
   title.classList.add("menu-title");
-  title.textContent = menuItem.title;
+  title.innerHTML = menuItem.title;
 
   const price = document.createElement("p");
   price.classList.add("menu-price");
   price.textContent = menuItem.price;
 
+  titlePriceContainer.appendChild(title);
+  titlePriceContainer.appendChild(price);
+
   const description = document.createElement("p");
   description.classList.add("menu-description");
-  description.textContent = menuItem.desc;
+  description.innerHTML = menuItem.desc;
 
-  article.appendChild(img);
-  article.appendChild(title);
-  article.appendChild(price);
-  article.appendChild(description);
+  detailsContainer.appendChild(titlePriceContainer);
+  detailsContainer.appendChild(description);
+
+  article.appendChild(imageContainer);
+  article.appendChild(detailsContainer);
 
   return article;
 };
@@ -37,7 +52,6 @@ const insertMenuItem = (menuItems) => {
 
   menuItems.forEach((menuItem) => {
     const menuItemElement = createMenuItem(menuItem);
-    console.log("메뉴아이템", menuItemElement);
     menuContainer.appendChild(menuItemElement);
   });
 
@@ -63,7 +77,6 @@ const filterMenuItems = (category) => {
       break;
     case "wrap": // 랩
       const wrapMenus = menu.filter((item) => item.category === "wrap");
-      console.log(wrapMenus);
       insertMenuItem(wrapMenus);
       break;
     default:
@@ -74,8 +87,9 @@ const filterMenuItems = (category) => {
 document.querySelectorAll(".category-link").forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
-    const category = e.currentTarget.id;
+    const category = e.currentTarget.id; // id값을 카테고리에 넣어서 필터링함.
     filterMenuItems(category);
-    console.log(category);
   });
 });
+
+insertMenuItem(menu);
