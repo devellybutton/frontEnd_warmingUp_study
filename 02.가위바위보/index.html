@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Salsa&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -28,29 +29,34 @@
     </div>
     <div class="container">
       <h2 id="choose">CHOOSE!</h2>
-      <div class="circle-container">
-        <div class="circle" id="rock-circle">
-          <img src="./images/rock.png" alt="바위" id="rock" />
-        </div>
-        <div class="circle" id="scissors-circle">
-          <img src="./images/scissors.png" alt="가위" id="scissors" />
-        </div>
-        <div class="circle" id="paper-circle">
-          <img src="./images/paper.png" alt="보" id="paper" />
-        </div>
-      </div>
-      <br />
       <div class="count">
         <p id="count-text">COUNT</p>
+        <p id="count-colon">:</p>
         <div class="count-container">
           <p id="current-count">5</p>
           <p id="count-number-slash">/</p>
           <p id="total-count">10</p>
         </div>
       </div>
+      <div class="circle-container">
+        <div class="circle" id="rock-circle"></div>
+        <div class="circle" id="scissors-circle"></div>
+        <div class="circle" id="paper-circle"></div>
+      </div>
+      <br />
+    </div>
+    <div class="selection" id="selections">
+      <div class="selection" id="player-selection">
+        <p>YOU</p>
+        <!--플레이어 이미지 추가-->
+      </div>
+      <div class="selection" id="computer-selection">
+        <p>ME</p>
+        <!--컴퓨터 이미지 추가-->
+      </div>
     </div>
     <div class="result" id="result">YOU WIN!</div>
-    <div class="retry" id="retry">RETRY</div>
+    <!-- <button class="retry" id="retry">RETRY</button> -->
     <script src="index.js" type="module"></script>
   </body>
 </html>
