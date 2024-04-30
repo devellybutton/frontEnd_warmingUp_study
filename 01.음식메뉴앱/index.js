@@ -21,7 +21,7 @@ const createMenuItem = (menuItem) => {
   const titlePriceContainer = document.createElement("div");
   titlePriceContainer.classList.add("title-price");
 
-  const title = document.createElement("h4");
+  const title = document.createElement("h3");
   title.classList.add("menu-title");
   title.innerHTML = menuItem.title;
 
@@ -32,11 +32,14 @@ const createMenuItem = (menuItem) => {
   titlePriceContainer.appendChild(title);
   titlePriceContainer.appendChild(price);
 
+  const hr = document.createElement("hr");
+
   const description = document.createElement("p");
   description.classList.add("menu-description");
   description.innerHTML = menuItem.desc;
 
   detailsContainer.appendChild(titlePriceContainer);
+  detailsContainer.appendChild(hr);
   detailsContainer.appendChild(description);
 
   article.appendChild(imageContainer);
@@ -79,6 +82,9 @@ const filterMenuItems = (category) => {
       const wrapMenus = menu.filter((item) => item.category === "wrap");
       insertMenuItem(wrapMenus);
       break;
+    case "alcohol":
+      const alcoholMenus = menu.filter((item) => item.category === "alcohol");
+      insertMenuItem(alcoholMenus);
     default:
       break;
   }
@@ -93,3 +99,11 @@ document.querySelectorAll(".category-link").forEach((link) => {
 });
 
 insertMenuItem(menu);
+
+// 주류 클릭시 알림창 뜸.
+const alcoholLink = document.getElementById('alcohol');
+
+alcoholLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    alert('주류는 19세 이상만 구매 가능합니다!');
+});
