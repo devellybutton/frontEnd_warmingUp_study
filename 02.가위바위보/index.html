@@ -10,7 +10,6 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Salsa&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -20,11 +19,11 @@
     <div class="score" id="score">
       <div class="player">
         <p id="player-text">YOU</p>
-        <p id="player-score">1</p>
+        <p id="player-score">0</p>
       </div>
       <div class="computer">
         <p id="computer-text">ME</p>
-        <p id="computer-score">3</p>
+        <p id="computer-score">0</p>
       </div>
     </div>
     <div class="container">
@@ -33,12 +32,12 @@
         <p id="count-text">COUNT</p>
         <p id="count-colon">:</p>
         <div class="count-container">
-          <p id="current-count">5</p>
+          <p id="current-count">10</p>
           <p id="count-number-slash">/</p>
           <p id="total-count">10</p>
         </div>
       </div>
-      <div class="circle-container">
+      <div class="circle-container" id="circle-container">
         <div class="circle" id="rock-circle"></div>
         <div class="circle" id="scissors-circle"></div>
         <div class="circle" id="paper-circle"></div>
@@ -48,15 +47,15 @@
     <div class="selection" id="selections">
       <div class="selection" id="player-selection">
         <p>YOU</p>
-        <!--플레이어 이미지 추가-->
+        <!--플레이어 선택 이미지 추가-->
       </div>
       <div class="selection" id="computer-selection">
         <p>ME</p>
-        <!--컴퓨터 이미지 추가-->
+        <!--컴퓨터 선택 이미지 추가-->
       </div>
     </div>
     <div class="result" id="result">YOU WIN!</div>
-    <!-- <button class="retry" id="retry">RETRY</button> -->
+    <button class="retry" id="retry">RETRY</button>
     <script src="index.js" type="module"></script>
   </body>
 </html>

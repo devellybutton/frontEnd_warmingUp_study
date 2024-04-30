@@ -104,7 +104,7 @@ h6,
 
 .circle:hover {
   transform: scale(0.95);
-  border: 5px solid;
+  border: 6px solid;
   cursor: pointer;
 }
 
@@ -151,6 +151,12 @@ h6,
   gap: 10px;
 }
 
+/* 작아지는 경우 */
+.count-container .small {
+  width: 60%;
+  height: 60%;
+}
+
 #current-count,
 #total-count {
   align-self: center;
@@ -168,7 +174,6 @@ player-selection {
   display: flex;
 }
 
-/* 나중에 */
 .retry {
   position: fixed;
   top: 50%;
@@ -181,4 +186,5 @@ player-selection {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1em;
+  display: none;
 }
