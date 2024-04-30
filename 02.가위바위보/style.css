@@ -1,0 +1,66 @@
+html,
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.menu-title,
+.menu-price,
+.menu-description {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.title h1 {
+  text-align: center;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.result {
+  text-align: center;
+}
+
+.count {
+  display: flex;
+  flex-direction: column;
+}
+
+.count .count-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.retry {
+  text-align: center;
+}
