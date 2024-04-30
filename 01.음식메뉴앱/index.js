@@ -82,7 +82,7 @@ const filterMenuItems = (category) => {
       const wrapMenus = menu.filter((item) => item.category === "wrap");
       insertMenuItem(wrapMenus);
       break;
-    case "alcohol":
+    case "alcohol":  // 주류
       const alcoholMenus = menu.filter((item) => item.category === "alcohol");
       insertMenuItem(alcoholMenus);
     default:
