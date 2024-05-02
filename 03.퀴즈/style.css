@@ -1,0 +1,108 @@
+/*
+////// 공통
+*/
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+////// 메인
+*/
+.startQuizContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+}
+
+.startQuizContainer h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 3em;
+}
+
+.startQuiz {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 40px;
+}
+
+.startQuiz button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.startQuiz button:hover {
+  background-color: #45a049;
+}
+
+.startQuiz button:hover::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  width: 60%;
+  height: 4px;
+  background-color: pink;
+  bottom: -2px;
+  transition: left 0.3s width 0.3s bottom 0.3s;
+}
+
+.startQuiz button:hover::after {
+  bottom: 10px;
+}
+
+.startQuiz button:hover + #horizontal-underline {
+  top: 2px;
+}
+
+#horizontal-underline {
+  position: absolute;
+  width: 100%;
+  background-color: pink;
+  height: 2px;
+  top: 0;
+  transition: top 0.3s;
+}
+
+/*
+////// OX 퀴즈
+*/
+.oxQuiz {
+  display: none;
+}
+
+/*
+////// 초성 퀴즈
+*/
+.wordQuiz {
+  display: none;
+}
+
+/*
+////// 사칙연산 퀴즈
+*/
+.mathQuiz {
+  display: none;
+}
+
+/*
+////// 가로세로 낱말퍼즐
+*/

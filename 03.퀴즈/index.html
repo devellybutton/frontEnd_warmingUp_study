@@ -4,12 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- 메인 -->
+    <div class="startQuizContainer">
+        <h1 class="fallingLetters">퀴즈를 풀어 보아요!</h1>
+    <div class="startQuiz">
+      <button class="startQuizBtn" id="start-ox">상식 OX 퀴즈</button>
+      <button class="startQuizBtn" id="start-math">사칙연산 풀어보기</button>
+      <button class="startQuizBtn" id="start-word">
+        초성 보고 단어 맞추기
+      </button>
+      <button class="startQuizBtn" id="start-cross">가로세로 낱말퍼즐</button>
+    </div>
+    </div>
     <!-- OX 퀴즈-->
     <div class="oxQuiz">
-      <div class="oxQuestion"></div>
+      <div class="Question" id="oxQuestion"></div>
       <div class="oxQuizBtn">
         <button class="oxBtn" id="oBtn">O</button>
         <button class="oxBtn" id="xBtn">X</button>
@@ -17,9 +32,22 @@
       <div class="Explanation"></div>
     </div>
     <!-- 초성 퀴즈-->
-    <div class="wordQuiz"></div>
+    <div class="wordQuiz">
+      <div class="Question" id="wordQuestion"></div>
+      <form id="wordForm"></form>
+      <p>제출 버튼이나 키보드의 ENTER를 누르세요.</p>
+      <button id="wordQuizBtn">제출</button>
+    </div>
     <!-- math 퀴즈-->
-    <div class="mathQuiz"></div>
+    <div class="mathQuiz">
+        <div class="Question" id="mathQuestion"></div>
+        <div class="mathQuizBtns">
+            <button class="mathQuizBtn" id="aBtn">a</button>
+            <button class="mathQuizBtn" id="bBtn">b</button>
+            <button class="mathQuizBtn" id="bBtn">c</button>
+        </div>
+    </div>
+    </div>
     <script src="index.js" type="module"></script>
   </body>
 </html>
