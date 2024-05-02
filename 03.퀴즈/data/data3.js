@@ -1,6 +1,6 @@
 // 초성퀴즈
 // 30문제 중 랜덤으로 N개 출제됨
-const wordQuiz = [
+const wordQuizData = [
   // 동물 이름 10문제 (1~10)
   {
     id: 1,
@@ -185,3 +185,5 @@ const wordQuiz = [
     answer: "민들레",
   },
 ];
+
+export default wordQuizData;

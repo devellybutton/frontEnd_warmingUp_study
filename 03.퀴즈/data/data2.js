@@ -1,6 +1,6 @@
 // 사칙연산 퀴즈
 // 30문제 중 랜덤으로 N문제 출제됨.
-const mathQuiz = [
+const mathQuizData = [
   {
     id: 1,
     question: "3 x 5 + 6",
@@ -242,3 +242,5 @@ const mathQuiz = [
     answer: "c",
   },
 ];
+
+export default mathQuizData;

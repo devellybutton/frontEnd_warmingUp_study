@@ -1,6 +1,6 @@
 // OX 퀴즈
 // 상식퀴즈로 총 30문제 중 랜덤으로 N문제 출제됨.
-const oxQuiz = [
+const oxQuizData = [
   {
     id: 1,
     question: "광견병은 고양이도 걸린다.",
@@ -204,3 +204,5 @@ const oxQuiz = [
       "	달의 자기장은 지구에 비해 매우 약하기 때문에 나침반을 작동시킬수가 없다.",
   },
 ];
+
+export default oxQuizData;

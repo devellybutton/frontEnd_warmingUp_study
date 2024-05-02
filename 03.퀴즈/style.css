@@ -1,12 +1,58 @@
 /*
 ////// 공통
 */
-* {
+*,
+html,
+body {
   font-family: "Noto Sans KR", sans-serif;
   box-sizing: border-box;
   letter-spacing: 2px;
   margin: 0;
   padding: 0;
+  background-color: #f2e6d5;
+}
+
+/*
+////// 처음으로 버튼
+*/
+#firstTimeButton {
+  display: fixed;
+  float: right;
+  margin-top: 50px;
+  margin-right: 50px;
+  padding: 20px 30px;
+  background-color: #ff5733;
+  color: white;
+  border: 2px solid #ff5733;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700px;
+  font-size: 20px;
+  text-align: center;
+  transition: background-color 0.2s, border-color 0.3s;
+  z-index: 1;
+}
+
+#firstTimeButton:hover {
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+#correctCount {
+  display: fixed;
+  float: right;
+  margin-top: 150px;
+  margin-right: -110px;
+  padding: 20px 30px;
+  background-color: pink;
+  color: purple;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700px;
+  font-size: 30px;
+  text-align: center;
+  transition: background-color 0.2s, border-color 0.3s;
+  z-index: 1;
 }
 
 /*
@@ -85,8 +131,102 @@
 /*
 ////// OX 퀴즈
 */
+.oxQuizContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .oxQuiz {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+}
+
+#oxTitle {
+  text-align: center;
+  font-size: 3em;
+}
+
+.questionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+#oxQuestion {
+  width: 70%;
+  background-color: #f2e6d5;
+}
+
+#oxNumbers {
+  width: 15%;
+  text-align: center;
+}
+
+#oxNext {
+  width: 15%;
+  text-align: center;
+}
+
+.oxQuizBtn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.oxBtn {
+  width: 200px;
+  height: 300px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#oBtn {
+  background-color: #0000ff;
+  color: white;
+  font-size: 10rem;
+  margin-right: 25px;
+}
+
+#oBtn.correct-answer {
+  background-color: rgba(200, 230, 200, 0.8);
+  color: white;
+  font-size: 10rem;
+  margin-right: 25px;
+}
+
+#oBtn.incorrect-answer {
+  background-color: rgba(105, 105, 105, 0.8);
+  color: white;
+  font-size: 10rem;
+  margin-right: 25px;
+}
+
+#xBtn {
+  background-color: #ff0000;
+  color: white;
+  font-size: 10rem;
+}
+
+#xBtn.correct-answer {
+  background-color: rgba(200, 230, 200, 0.8);
+  color: white;
+  font-size: 10rem;
+}
+
+#xBtn.incorrect-answer {
+  background-color: rgba(105, 105, 105, 0.8);
+  color: white;
+  font-size: 10rem;
 }
 
 /*

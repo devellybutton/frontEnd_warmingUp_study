@@ -11,6 +11,8 @@
   </head>
   <body>
     <!-- 메인 -->
+    <button id="firstTimeButton">처음으로</button>
+    <div id="correctCount">0</div>
     <div class="startQuizContainer">
         <h1 class="fallingLetters">퀴즈를 풀어 보아요!</h1>
     <div class="startQuiz">
@@ -23,14 +25,21 @@
     </div>
     </div>
     <!-- OX 퀴즈-->
-    <div class="oxQuiz">
-      <div class="Question" id="oxQuestion"></div>
+    <div class="oxQuizContainer">
+     <div class="oxQuiz">
+      <h1 id="oxTitle">OX 퀴즈</h1>
+      <div class="questionContainer" id="questionContainer">
+        <div class="Question" id="oxQuestion">문제</div>
+        <div id="oxNumbers">1 / 10</div>
+        <button id="oxNext">다음</button>
+      </div>
       <div class="oxQuizBtn">
         <button class="oxBtn" id="oBtn">O</button>
         <button class="oxBtn" id="xBtn">X</button>
       </div>
-      <div class="Explanation"></div>
-    </div>
+      <div class="Explanation" id="oxExplanation">퀴즈 해설</div>
+     </div>
+     </div>
     <!-- 초성 퀴즈-->
     <div class="wordQuiz">
       <div class="Question" id="wordQuestion"></div>
