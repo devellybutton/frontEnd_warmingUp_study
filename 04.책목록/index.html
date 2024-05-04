@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header><h1>읽은 책 목록</h1></header>
+    <main>
+      <div class="description" id="description">설명</div>
+      <div class="form-container">
+        <form class="book-info" id="book-info">
+          <div class="book-flex" id="book-title">
+            <label for="title">책 이름</label>
+            <input type="text" name="title" id="title" />
+          </div>
+          <div class="book-flex" id="book-author">
+            <label for="title">책 저자</label>
+            <input type="text" name="author" id="author" />
+          </div>
+          <div class="book-flex" id="book-date">
+            <label for="date">읽은 날짜</label>
+            <input type="date" name="date" id="date" />
+          </div>
+          <button type="submit" id="add-btn">등록</button>
+        </form>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>책 이름</th>
+            <th>책 저자</th>
+            <th>읽은 날짜</th>
+          </tr>
+
+          <tr></tr>
+        </thead>
+
+        <tbody></tbody>
+      </table>
+    </main>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>

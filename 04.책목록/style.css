@@ -1,0 +1,99 @@
+html,
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+    margin-top: 20px;
+}
+
+header,
+main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#book-info {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.book-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.book-flex > label {
+  display: flex;
+  align-items: center;
+}
+
+.book-flex {
+  margin-bottom: 20px;
+}
+
+.book-flex > input {
+  width: 80%;
+}
+
+.form-container {
+  margin: 20px;
+  width: 50%;
+}
+
+.table {
+  width: 80%;
+  border-collapse: collapse; /* 셀 간 테두리를 겹치도록 설정 */
+  text-align: center;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd; /* 셀 테두리 설정 */
+  padding: 3px; /* 셀 내부 여백 설정 */
+}
+
+.table th {
+  background-color: #f2f2f2; /* 테이블 헤더 배경색 */
+  font-weight: bold;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 40%; /* 책 이름 열 너비 설정 (4/5) */
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 30%; /* 책 저자 열 너비 설정 (3/5) */
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 20%; /* 읽은 날짜 열 너비 설정 (2/5) */
+}
+
+/* 짝수 행의 배경색을 다르게 설정 */
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#description {
+  visibility: hidden;
+  width: 50%;
+  text-align: center;
+  background-color: green;
+  color: white;
+  padding: 3px;
+}

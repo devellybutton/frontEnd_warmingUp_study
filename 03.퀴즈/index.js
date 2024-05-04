@@ -21,13 +21,18 @@ const $oxExplanation = document.getElementById("oxExplanation");
 const $oxNext = document.getElementById("oxNext");
 const $oxNumbers = document.getElementById("oxNumbers");
 
-// '처음으로' 버튼 클릭
-$firstTimeButton.addEventListener("click", (e) => {
-  e.preventDefault();
+// 화면 초기화
+function reset() {
   $startQuizContainer.style.display = "block";
   $oxQuiz.style.display = "none";
   $wordQuiz.style.display = "none";
   $mathQuiz.style.display = "none";
+}
+
+// '처음으로' 버튼 클릭
+$firstTimeButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  reset();
 });
 
 // OX 퀴즈 시작
@@ -124,10 +129,7 @@ $startOx.addEventListener("click", (e) => {
         // 해설 내용 초기화
         $oxExplanation.innerText = "";
       } else {
-        $startQuizContainer.style.display = "block";
-        $oxQuiz.style.display = "none";
-        $wordQuiz.style.display = "none";
-        $mathQuiz.style.display = "none";
+        reset();
       }
     }, 3000);
   }
