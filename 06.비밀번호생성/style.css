@@ -1,0 +1,190 @@
+html,
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("./images/brick.jpg");
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+
+h1:hover {
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 2px 0 grey, 0 3px 0 grey,
+    0 4px 0 grey, 0 5px 0 grey, 0 6px 0 grey, 0 7px 0 grey,
+    0 8px 9px rgba(60, 60, 61, 0.5);
+}
+
+main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.generator-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.5),
+    /* 동쪽 그림자 */ inset -2px -2px 2px rgba(0, 0, 0, 0.5),
+    /* 서쪽 그림자 */ inset 2px -2px 2px rgba(0, 0, 0, 0.5),
+    /* 남쪽 그림자 */ inset -2px 2px 2px rgba(0, 0, 0, 0.5); /* 북쪽 그림자 */
+}
+
+label {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+label span{
+  margin-left: 10px;
+}
+
+#password {
+  white-space: normal;
+}
+
+label.password-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+label.password-container input {
+  flex-grow: 1;
+  padding: 10px 5px;
+  height: 100%;
+}
+
+label.password-container button {
+  flex-grow: 0;
+  height: 100%;
+}
+
+#p-length {
+  display: flex;
+  justify-content: space-between;
+}
+
+#p-length > span {
+  font-weight: 800;
+  margin: 10px;
+}
+
+#p-length > input {
+  font-size: 15px;
+  padding: 0 5px;
+  font-weight: 600;
+}
+
+.check-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 60%;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  background-color: #dbdeff;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #9c94d0;
+  border: none;
+}
+
+button#generate-btn {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #9c94d0;
+  border: none;
+  padding: 10px 5px;
+  width: 65%;
+  margin-bottom: 10px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.warning {
+  padding-right: 20px;
+  background-color: #dbe76d;
+}
+
+#longlock {
+  display: none;
+  position: absolute;
+  background-image: url("./images/lock1.png");
+  background-size: cover;
+  width: 100px;
+  height: 200px;
+  z-index: 1;
+  top: -15px;
+  left: -33px;
+  transform-origin: top;
+}
+
+#longlock:hover {
+  animation: shake 5s infinite linear;
+}
+
+#shortlock {
+  position: absolute;
+  background-image: url("./images/lock2.png");
+  background-size: cover;
+  width: 100px;
+  height: 200px;
+  z-index: 1;
+  top: -20px;
+  left: -33px;
+  transition: 0.3s;
+}
+
+#shortlock:hover {
+  animation: shake 5s infinite linear;
+}
+
+@keyframes shake {
+  0%,
+  50% {
+    transform: rotate(0deg);
+  }
+  5%,
+  15%,
+  25%,
+  35%,
+  45% {
+    transform: rotate(13deg);
+  }
+  10%,
+  20%,
+  30%,
+  40% {
+    transform: rotate(-13deg);
+  }
+}

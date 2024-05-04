@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Random Password Generator</h1>
+      <div class="generator-container">
+        <label class="password-container">
+          <input
+            type="text"
+            id="password"
+            readonly
+            placeholder="Generated Password"
+          />
+          <button class="material-symbols-outlined" id="copy-btn">
+            content_copy
+          </button>
+        </label>
+        <div class="check-box">
+          <label id="p-length">
+            <span id="p-length-span">Password Length: </span>
+            <input
+              type="number"
+              id="password-length"
+              min="5"
+              max="30"
+              value="5"
+            />
+          </label>
+          <label>
+            <input type="checkbox" id="p-numbers" />
+            <span>Numbers (0~9)</span>
+          </label>
+          <label>
+            <input type="checkbox" id="p-small-letters" />
+            <span>Small Letters (a-z)</span>
+          </label>
+          <label>
+            <input type="checkbox" id="p-capital-letters" />
+            <span>Capital Letters (A-Z)</span>
+          </label>
+          <label>
+            <input type="checkbox" id="p-symbols" />
+            <span>Symbols (@,!,#,$,&,%)</span>
+          </label>
+        </div>
+        <button id="generate-btn">Generate</button>
+        <div class="warning">
+          <ul class="warning-list">
+            <li>Password has a minimum length of <strong>5</strong> characters.</li>
+            <li>Maximum length of the password is <strong>30</strong> characters</li>
+            <li>Strong password must be <strong>10</strong> to <strong>16</strong> characters long.</li>
+          </ul>
+        </div>
+        <div id="longlock"></div>
+        <div id="shortlock"></div>
+      </div>
+    </main>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
