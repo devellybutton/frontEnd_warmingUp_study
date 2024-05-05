@@ -42,20 +42,21 @@
         </div>
       </div>
       <div class="circle-container" id="circle-container">
-        <div class="circle" id="rock-circle"></div>
-        <div class="circle" id="scissors-circle"></div>
-        <div class="circle" id="paper-circle"></div>
+        <button class="circle" id="rock-circle"></button>
+        <button class="circle" id="scissors-circle"></button>
+        <button class="circle" id="paper-circle"></button>
       </div>
       <br />
     </div>
+    <!--선택한 것들 출력-->
     <div class="selection" id="selections">
       <div class="selection" id="player-selection">
-        <p>YOU</p>
-        <!--플레이어 선택 이미지 추가-->
-      </div>
+        <p>YOU : </p>
+        <p class="selection-b">가위</p>
+      </div><br>
       <div class="selection" id="computer-selection">
-        <p>ME</p>
-        <!--컴퓨터 선택 이미지 추가-->
+        <p>ME :</p>
+        <p class="selection-b">바위</p>
       </div>
     </div>
     <div class="result" id="result">YOU WIN!</div>

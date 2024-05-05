@@ -83,7 +83,7 @@ const determineWinner = (
     $result.innerText = "You Win!";
     playerScore++;
   } else {
-    $result.innerText = "Computer Wins!";
+    $result.innerText = "Me Win!";
     computerScore++;
   }
 };

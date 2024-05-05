@@ -77,6 +77,7 @@ function addBook() {
 
   $description.style.visibility = "visible";
   $description.textContent = "책이 추가되었습니다.";
+  $description.style.backgroundColor = "green";
 
   closeDescription();
 }

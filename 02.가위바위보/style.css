@@ -90,6 +90,7 @@ h6,
 .circle-container {
   display: flex;
   flex-direction: row;
+  margin: -5px -5px;
 }
 
 .circle {
@@ -97,14 +98,14 @@ h6,
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid;
+  border: 5px solid white;
   margin: 20px;
   transition: transform 0.2s;
 }
 
 .circle:hover {
   transform: scale(0.95);
-  border: 10px solid;
+  border: 10px solid white;
   cursor: pointer;
   background-color: #000000;
 }
@@ -132,6 +133,7 @@ h6,
 
 .result {
   text-align: center;
+  font-size: 1.5em;
 }
 
 .count {
@@ -167,11 +169,21 @@ h6,
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 0 20px;
+  gap: 20px;
+  font-size: 1.1em;
+}
+
+.selection-b {
+  background-color: #ffffff;
+  color: #0079ff;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 800;
+  padding: 0 10px;
 }
 
 #computer-selection,
-player-selection {
+#player-selection {
   display: flex;
 }
 
