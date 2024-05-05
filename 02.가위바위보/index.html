@@ -50,16 +50,19 @@
     </div>
     <!--선택한 것들 출력-->
     <div class="selection" id="selections">
-      <div class="selection" id="player-selection">
-        <p>YOU : </p>
-        <p class="selection-b">가위</p>
-      </div><br>
-      <div class="selection" id="computer-selection">
+      <div class="selection">
+        <p>YOU :</p>
+        <p class="selection-b" id="player-selection">가위</p>
+      </div>
+      <br />
+      <div class="selection">
         <p>ME :</p>
-        <p class="selection-b">바위</p>
+        <p class="selection-b" id="computer-selection">바위</p>
       </div>
     </div>
     <div class="result" id="result">YOU WIN!</div>
+    <!--모달 창 안에 있는 것들-->
+    <h1 id="modal-result">게임 결과</h1>
     <button class="retry" id="retry">RETRY</button>
     <div id="modal-overlay"></div>
     <script src="index.js" type="module"></script>

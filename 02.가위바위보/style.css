@@ -132,6 +132,7 @@ h6,
 }
 
 .result {
+  visibility: hidden;
   text-align: center;
   font-size: 1.5em;
 }
@@ -154,12 +155,6 @@ h6,
   gap: 10px;
 }
 
-/* 작아지는 경우 */
-#count-container.small {
-  width: 60%;
-  height: 60%;
-}
-
 #current-count,
 #total-count {
   align-self: center;
@@ -175,6 +170,7 @@ h6,
 }
 
 .selection-b {
+  visibility: hidden;
   background-color: #ffffff;
   color: #0079ff;
   font-family: "Noto Sans KR", sans-serif;
@@ -187,9 +183,21 @@ h6,
   display: flex;
 }
 
+#modal-result {
+  font-size: 5em;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  display: none;
+  letter-spacing: 3px;
+}
+
 .retry {
   position: fixed;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #9eecff;
