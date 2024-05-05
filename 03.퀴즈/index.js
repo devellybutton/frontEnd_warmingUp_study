@@ -29,7 +29,7 @@ function reset() {
   $mathQuiz.style.display = "none";
 }
 
-// '처음으로' 버튼 클릭
+// '처음으로' 버튼 클릭 이벤트
 $firstTimeButton.addEventListener("click", (e) => {
   e.preventDefault();
   reset();
@@ -63,23 +63,24 @@ $startOx.addEventListener("click", (e) => {
     $oxQuestion.innerText = question.question;
   }
 
+  // 정답 일치여부 판단
   function handleUserInput(userAnswer, correctAnswer) {
-    if (userAnswer === correctAnswer) {
-      return true;
-    } else {
-      return false;
-    }
+    console.log("handleUserInput 안", userAnswer, correctAnswer);
+    return userAnswer === correctAnswer;
   }
 
   // O 버튼을 눌렀을 경우
   $oBtn.addEventListener("click", function () {
-    const userAnswer = "o";
+    const userAnswer = "O";
     const correctAnswer = currentQuestion.answer;
     const isCorrect = handleUserInput(userAnswer, correctAnswer);
-    console.log(isCorrect);
+    console.log(
+      "O버튼, 유저의 답, 이 문제의 정답: ",
+      userAnswer,
+      correctAnswer
+    );
+    console.log("O버튼 누를 때 isCorrect", isCorrect);
     if (isCorrect) {
-      score++;
-      $correctCount.innerText = score;
       console.log("O버튼 맞음");
       $oBtn.classList.add("correct-answer");
     } else {
@@ -87,17 +88,21 @@ $startOx.addEventListener("click", (e) => {
       console.log("O버튼 틀림");
     }
     $oxExplanation.innerText = currentQuestion.explanation;
-    moveToNextQuestion();
+    moveToNextQuestion(isCorrect);
   });
 
   // X 버튼을 눌렀을 경우
   $xBtn.addEventListener("click", function (e) {
-    const userAnswer = "x";
+    const userAnswer = "X";
     const correctAnswer = currentQuestion.answer;
     const isCorrect = handleUserInput(userAnswer, correctAnswer);
+    console.log(
+      "X버튼, 유저의 답, 이 문제의 정답: ",
+      userAnswer,
+      correctAnswer
+    );
+    console.log("X버튼 누를 때 isCorrect", isCorrect);
     if (isCorrect) {
-      score++;
-      $correctCount.innerText = score;
       console.log("x버튼 맞음");
       $xBtn.classList.add("correct-answer");
     } else {
@@ -105,7 +110,7 @@ $startOx.addEventListener("click", (e) => {
       $xBtn.classList.add("incorrect-answer");
     }
     $oxExplanation.innerHTML = currentQuestion.explanation;
-    moveToNextQuestion();
+    moveToNextQuestion(isCorrect);
   });
 
   // 다음 버튼을 눌렀을 경우
@@ -114,7 +119,7 @@ $startOx.addEventListener("click", (e) => {
   });
 
   // 다음 문제로 넘어가기
-  function moveToNextQuestion() {
+  function moveToNextQuestion(isCorrect) {
     setTimeout(() => {
       currentQuestionIndex++;
       if (currentQuestionIndex < selectedQuestions.length) {
@@ -128,6 +133,16 @@ $startOx.addEventListener("click", (e) => {
 
         // 해설 내용 초기화
         $oxExplanation.innerText = "";
+
+        // 정답인 경우에만 score 증가
+        if (isCorrect) {
+          score++;
+          $correctCount.innerText = score;
+        }
+
+        // 다음 문제 넘어가기
+        currentQuestion = nextQuestion;
+        console.log("다음문제 해설 확인", currentQuestion.explanation);
       } else {
         reset();
       }
@@ -139,7 +154,7 @@ $startOx.addEventListener("click", (e) => {
   let currentQuestionIndex = 0;
   let score = 0;
 
-  const currentQuestion = selectedQuestions[currentQuestionIndex];
+  let currentQuestion = selectedQuestions[currentQuestionIndex];
   renderQuestion(currentQuestion);
 });
 

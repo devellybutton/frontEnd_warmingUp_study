@@ -4,14 +4,14 @@ const oxQuizData = [
   {
     id: 1,
     question: "광견병은 고양이도 걸린다.",
-    answer: "o",
+    answer: "O",
     explanation:
       "광견병은 Rabies 바이러스가 원인인 전염병으로 사람을 포함한 피가 따뜻한 동물 (온혈동물)은 모두 감염될 수 있기 때문에 고양이도 광견병에 걸릴 수 있다.",
   },
   {
     id: 2,
     question: "딸기는 장미과에 속한다.",
-    answer: "o",
+    answer: "O",
     explanation:
       "딸기는 장미과에 속하는 여러해살이풀 또는 그 열매로, 한자로는 매(苺) · 초매(草苺)라고 한다.",
   },
