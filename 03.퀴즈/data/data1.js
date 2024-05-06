@@ -59,9 +59,8 @@ const oxQuizData = [
   {
     id: 9,
     question: "사람의 몸 겉모양은 좌우가 정확히 똑같은 대칭이다.",
-    answer: "O",
-    explanation:
-      "광합성을 하지 않고 기생생활을 하는 균류는 다른 동식물의 몸에 붙어야 하므로 공기 속을 날아서 이동한다.",
+    answer: "X",
+    explanation: "직접 측정해보면 길이가 약간씩 다름을 알 수 있다.",
   },
   {
     id: 10,
