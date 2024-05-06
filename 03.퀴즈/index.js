@@ -22,27 +22,40 @@ const $oxNext = document.getElementById("oxNext");
 const $oxNumbers = document.getElementById("oxNumbers");
 
 // 화면 초기화
-function reset() {
+function goToMain() {
   $startQuizContainer.style.display = "block";
   $oxQuiz.style.display = "none";
   $wordQuiz.style.display = "none";
   $mathQuiz.style.display = "none";
+  $correctCount.style.visibility = "hidden";
+  $correctCount.innerText = "0";
+  $oxNumbers.innerText = '1 / 10';
 }
 
-// '처음으로' 버튼 클릭 이벤트
-$firstTimeButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  reset();
-});
+// '처음으로' 버튼 동작
+$firstTimeButton.addEventListener("click", goToMain);
 
-// OX 퀴즈 시작
-$startOx.addEventListener("click", (e) => {
-  e.preventDefault();
-  $startQuizContainer.style.display = "none";
-  $oxQuiz.style.display = "flex";
+// OX 퀴즈
+class OXQuiz {
+  constructor(data, count) {
+    this.questions = this.selectRandomQuestions(data, count);
+    this.currentQuestionIndex = 0;
+    this.score = 0;
+    this.$oxQuestion = document.getElementById("oxQuestion");
+    this.$oBtn = document.getElementById("oBtn");
+    this.$xBtn = document.getElementById("xBtn");
+    this.$oxExplanation = document.getElementById("oxExplanation");
+    this.$oxNext = document.getElementById("oxNext");
+    this.$correctCount = document.getElementById("correctCount");
+    this.$correctCount.style.visibility = "visible";
+    this.$oxNumbers = document.getElementById("oxNumbers");
+    this.$oxQuizBtn = document.querySelector("oxQuizBtn");
+    this.renderQuestion(this.questions[this.currentQuestionIndex]);
+    this.bindEvents();
+  }
 
   // 문항수 랜덤 생성
-  function shuffleArray(array) {
+  shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
@@ -50,112 +63,105 @@ $startOx.addEventListener("click", (e) => {
     return array;
   }
 
-  // 데이터 불러와서 무작위로 넣기
-  function selectRandomQuestions(data, count) {
-    const shuffledData = shuffleArray([...data]);
-    console.log(shuffledData);
+  // 랜덤으로 문제 생성해서 넣기
+  selectRandomQuestions(data, count) {
+    const shuffledData = this.shuffleArray([...data]);
     return shuffledData.slice(0, count);
   }
 
   // 화면에 문항 렌더링
-  function renderQuestion(question) {
-    const $oxQuestion = document.getElementById("oxQuestion");
-    $oxQuestion.innerText = question.question;
+  renderQuestion(question) {
+    this.$oxQuestion.innerText = question.question;
   }
 
   // 정답 일치여부 판단
-  function handleUserInput(userAnswer, correctAnswer) {
-    console.log("handleUserInput 안", userAnswer, correctAnswer);
+  handleUserInput(userAnswer, correctAnswer) {
     return userAnswer === correctAnswer;
   }
 
-  // O 버튼을 눌렀을 경우
-  $oBtn.addEventListener("click", function () {
-    const userAnswer = "O";
-    const correctAnswer = currentQuestion.answer;
-    const isCorrect = handleUserInput(userAnswer, correctAnswer);
-    console.log(
-      "O버튼, 유저의 답, 이 문제의 정답: ",
-      userAnswer,
-      correctAnswer
-    );
-    console.log("O버튼 누를 때 isCorrect", isCorrect);
-    if (isCorrect) {
-      console.log("O버튼 맞음");
-      $oBtn.classList.add("correct-answer");
+  // '다음' 버튼 클릭시 다음 문제로 넘어감
+  nextQuestion() {
+    if (this.currentQuestionIndex < this.questions.length) {
+      this.currentQuestionIndex++;
+      $oxNumbers.innerText = `${this.currentQuestionIndex + 1} / ${
+        this.questions.length
+      }`;
+      this.renderQuestion(this.questions[this.currentQuestionIndex]);
+      this.$oBtn.classList.remove("correct-answer", "incorrect-answer");
+      this.$xBtn.classList.remove("correct-answer", "incorrect-answer");
+      this.$oxExplanation.innerText = "";
     } else {
-      $oBtn.classList.add("incorrect-answer");
-      console.log("O버튼 틀림");
+      this.reset();
     }
-    $oxExplanation.innerText = currentQuestion.explanation;
-    moveToNextQuestion(isCorrect);
-  });
-
-  // X 버튼을 눌렀을 경우
-  $xBtn.addEventListener("click", function (e) {
-    const userAnswer = "X";
-    const correctAnswer = currentQuestion.answer;
-    const isCorrect = handleUserInput(userAnswer, correctAnswer);
-    console.log(
-      "X버튼, 유저의 답, 이 문제의 정답: ",
-      userAnswer,
-      correctAnswer
-    );
-    console.log("X버튼 누를 때 isCorrect", isCorrect);
-    if (isCorrect) {
-      console.log("x버튼 맞음");
-      $xBtn.classList.add("correct-answer");
-    } else {
-      console.log("x버튼 틀림");
-      $xBtn.classList.add("incorrect-answer");
-    }
-    $oxExplanation.innerHTML = currentQuestion.explanation;
-    moveToNextQuestion(isCorrect);
-  });
-
-  // 다음 버튼을 눌렀을 경우
-  $oxNext.addEventListener("click", function () {
-    moveToNextQuestion();
-  });
-
-  // 다음 문제로 넘어가기
-  function moveToNextQuestion(isCorrect) {
-    setTimeout(() => {
-      currentQuestionIndex++;
-      if (currentQuestionIndex < selectedQuestions.length) {
-        const nextQuestion = selectedQuestions[currentQuestionIndex];
-        console.log(nextQuestion);
-        renderQuestion(nextQuestion);
-
-        // 버튼 색상 초기화
-        $oBtn.classList.remove("correct-answer", "incorrect-answer");
-        $xBtn.classList.remove("correct-answer", "incorrect-answer");
-
-        // 해설 내용 초기화
-        $oxExplanation.innerText = "";
-
-        // 정답인 경우에만 score 증가
-        if (isCorrect) {
-          score++;
-          $correctCount.innerText = score;
-        }
-
-        // 다음 문제 넘어가기
-        currentQuestion = nextQuestion;
-        console.log("다음문제 해설 확인", currentQuestion.explanation);
-      } else {
-        reset();
-      }
-    }, 3000);
   }
 
-  const selectedQuestions = selectRandomQuestions(oxQuizData, 10);
+  // OX 버튼 클릭시 정답 처리
+  handleOXButtonClick(answer) {
+    this.$oBtn.disabled = true;
+    this.$xBtn.disabled = true;
+    const userAnswer = answer.toUpperCase();
+    const correctAnswer =
+      this.questions[this.currentQuestionIndex].answer.toUpperCase();
+    const isCorrect = this.handleUserInput(userAnswer, correctAnswer);
+    const $button = answer === "o" ? this.$oBtn : this.$xBtn;
 
-  let currentQuestionIndex = 0;
-  let score = 0;
+    $button.classList.add(isCorrect ? "correct-answer" : "incorrect-answer");
+    this.$oxExplanation.innerText =
+      this.questions[this.currentQuestionIndex].explanation;
 
-  let currentQuestion = selectedQuestions[currentQuestionIndex];
-  renderQuestion(currentQuestion);
+    // 해설 읽는 시간을 고려하여 2초 후에 넘어가도록 함.
+    setTimeout(() => {
+      this.$oBtn.disabled = false;
+      this.$xBtn.disabled = false;
+      if (isCorrect) {
+        this.score++;
+        this.$correctCount.innerText = this.score;
+      }
+
+      if (this.currentQuestionIndex < this.questions.length) {
+        this.currentQuestionIndex++;
+        // 10회차에서 11회차로 넘어가기 전 종료
+        if (this.currentQuestionIndex >= 10) {
+          this.reset();
+        }
+        $oxNumbers.innerText = `${this.currentQuestionIndex + 1} / ${
+          this.questions.length
+        }`;
+        this.renderQuestion(this.questions[this.currentQuestionIndex]);
+        this.$oBtn.classList.remove("correct-answer", "incorrect-answer");
+        this.$xBtn.classList.remove("correct-answer", "incorrect-answer");
+        this.$oxExplanation.innerText = "";
+      } else {
+        this.reset();
+      }
+    }, 2000);
+  }
+
+  // OX 버튼의 이벤트 처리
+  bindEvents() {
+    this.$oBtn.addEventListener("click", () => this.handleOXButtonClick("o"));
+    this.$xBtn.addEventListener("click", () => this.handleOXButtonClick("x"));
+    this.$oxNext.addEventListener("click", () => this.nextQuestion());
+  }
+
+  // 초기화
+  reset() {
+    this.currentQuestionIndex = 0;
+    this.score = 0;
+    this.$oxExplanation.innerText = "";
+    this.$correctCount.innerText = "0";
+    this.$oBtn.classList.remove("correct-answer", "incorrect-answer");
+    this.$xBtn.classList.remove("correct-answer", "incorrect-answer");
+    goToMain();
+  }
+}
+
+// OX 퀴즈 시작 버튼 클릭 시 인스턴스 생성
+$startOx.addEventListener("click", (e) => {
+  e.preventDefault();
+  $startQuizContainer.style.display = "none";
+  $oxQuiz.style.display = "flex";
+  const oxQuiz = new OXQuiz(oxQuizData, 10);
 });
 
 // 초성 퀴즈 시작

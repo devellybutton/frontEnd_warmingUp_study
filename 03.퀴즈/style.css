@@ -39,10 +39,11 @@ body {
 }
 
 #correctCount {
-  display: fixed;
-  float: right;
+  visibility: hidden;
+  position: fixed;
+  right: 20px;
   margin-top: 150px;
-  margin-right: -110px;
+  margin-right: 20px;
   padding: 20px 30px;
   background-color: pink;
   color: purple;
@@ -76,10 +77,10 @@ body {
 
 @keyframes shake {
   from {
-      transform: translateX(-10px); /* 시작 지점에서 좌측으로 이동 */
+    transform: translateX(-10px); /* 시작 지점에서 좌측으로 이동 */
   }
   to {
-      transform: translateX(10px); /* 끝 지점에서 우측으로 이동 */
+    transform: translateX(10px); /* 끝 지점에서 우측으로 이동 */
   }
 }
 
@@ -182,6 +183,7 @@ body {
 #oxNext {
   width: 15%;
   text-align: center;
+  cursor: pointer;
 }
 
 .oxQuizBtn {
