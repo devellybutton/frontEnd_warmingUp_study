@@ -11,14 +11,8 @@ const $startQuizContainer = document.querySelector(".startQuizContainer");
 const $oxQuiz = document.querySelector(".oxQuiz");
 const $wordQuiz = document.querySelector(".wordQuiz");
 const $mathQuiz = document.querySelector(".mathQuiz");
-
 const $firstTimeButton = document.getElementById("firstTimeButton");
 const $correctCount = document.getElementById("correctCount");
-
-const $oBtn = document.getElementById("oBtn");
-const $xBtn = document.getElementById("xBtn");
-const $oxExplanation = document.getElementById("oxExplanation");
-const $oxNext = document.getElementById("oxNext");
 const $oxNumbers = document.getElementById("oxNumbers");
 
 // 화면 초기화
@@ -29,7 +23,7 @@ function goToMain() {
   $mathQuiz.style.display = "none";
   $correctCount.style.visibility = "hidden";
   $correctCount.innerText = "0";
-  $oxNumbers.innerText = '1 / 10';
+  $oxNumbers.innerText = "1 / 10";
 }
 
 // '처음으로' 버튼 동작
