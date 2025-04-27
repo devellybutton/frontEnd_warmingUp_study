@@ -8,6 +8,7 @@ const $startMath = document.getElementById("start-math");
 const $startWord = document.getElementById("start-word");
 const $startCross = document.getElementById("start-cross");
 const $startQuizContainer = document.querySelector(".startQuizContainer");
+const $wordQuizContainer = document.querySelector(".wordQuizContainer");
 const $oxQuiz = document.querySelector(".oxQuiz");
 const $wordQuiz = document.querySelector(".wordQuiz");
 const $mathQuiz = document.querySelector(".mathQuiz");
@@ -158,11 +159,32 @@ $startOx.addEventListener("click", (e) => {
   const oxQuiz = new OXQuiz(oxQuizData, 10);
 });
 
+// 초성 퀴즈
+class WordQuiz {
+  constructor() {}
+
+  shuffleArray() {
+    
+  }
+
+  bindEvents() {}
+}
+
 // 초성 퀴즈 시작
 $startWord.addEventListener("click", (e) => {
   e.preventDefault();
   $startQuizContainer.style.display = "none";
+  $wordQuizContainer.style.display = "flex";
 });
+
+// 초성 퀴즈
+class MathQuiz {
+  constructor() {}
+
+  shuffleArray() {}
+
+  bindEvents() {}
+}
 
 // 사칙연산 퀴즈 시작
 $startMath.addEventListener("click", (e) => {

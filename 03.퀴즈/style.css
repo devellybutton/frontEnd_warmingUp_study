@@ -244,8 +244,24 @@ body {
 /*
 ////// 초성 퀴즈
 */
+
+.wordQuizContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .wordQuiz {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#wordQuestionContainer {
+  display: flex;
+  justify-content: space-between;
 }
 
 /*

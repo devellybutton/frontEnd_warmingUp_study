@@ -1,5 +1,6 @@
 import menu from "./data.js";
 
+// innerHTML로 만들기
 // 메뉴 HTML DOM 요소 생성
 const createMenuItem = (menuItem) => {
   const article = document.createElement("article");
@@ -82,7 +83,7 @@ const filterMenuItems = (category) => {
       const wrapMenus = menu.filter((item) => item.category === "wrap");
       insertMenuItem(wrapMenus);
       break;
-    case "alcohol":  // 주류
+    case "alcohol": // 주류
       const alcoholMenus = menu.filter((item) => item.category === "alcohol");
       insertMenuItem(alcoholMenus);
     default:
@@ -101,9 +102,9 @@ document.querySelectorAll(".category-link").forEach((link) => {
 insertMenuItem(menu);
 
 // 주류 클릭시 알림창 뜸.
-const alcoholLink = document.getElementById('alcohol');
+const alcoholLink = document.getElementById("alcohol");
 
-alcoholLink.addEventListener('click', function(e) {
-    e.preventDefault();
-    alert('주류는 19세 이상만 구매 가능합니다!');
+alcoholLink.addEventListener("click", function (e) {
+  e.preventDefault();
+  alert("주류는 19세 이상만 구매 가능합니다!");
 });
